@@ -25,6 +25,10 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" Display line number and toggle with 2x Ctrl+n
+set number
+map <C-N><C-N> :set invnumber<CR>
+
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
