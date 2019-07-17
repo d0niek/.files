@@ -19,6 +19,12 @@ endif
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
+" Tabs settings
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
