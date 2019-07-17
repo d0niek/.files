@@ -39,6 +39,9 @@ imap <down>  <nop>
 imap <left>  <nop>
 imap <right> <nop>
 
+" Remove trailing whitespace after save :w
+autocmd BufWritePre * %s/\s\+$//e
+
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
