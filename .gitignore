@@ -1,0 +1,6 @@
+
+vim/backup/*
+!vim/backup/.gitempty
+
+vim/undo/*
+!vim/undo/.gitempty
