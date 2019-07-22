@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+all=0
+force=0
+root=0
+version=0.1.0
+files=("alias" "bashrc" "bashutil" "vim" "vimrc")
+
+function help() {
+    echo "Install dot files for current user."
+    echo "Run: dotfile [OPTIONS] dotfile..."
+    echo
+    echo "OPTIONS:"
+    echo "    -a    --all     Install all dot files"
+    echo "    -f    --force   Do not promt when dotfile already exists"
+    echo "    -h    --help    Display this help"
+    echo "    -r    --root    Install for root user too"
+    echo "    -v    --version Display version"
+    echo
+    echo "Created by damian@d0niek.pl"
+}
+
+function install_files() {
+    if [[ ${#} -eq 0 ]]; then
+        echo "Need files to install"
+        exit 1
+    fi
+
+    for file in "${@}"; do
+        install_file "${file}" "${HOME}/.${file}"
+
+        if [[ ${root} -eq 1 ]]; then
+            install_file "${file}" "/root/.${file}" "sudo"
+        fi
+    done
+}
+
+function install_file() {
+    file=${1:?"Need file name to install"}
+    dotfile=${2:?"Need dotfile name"}
+    sudo=${3:-""}
+    is_file_exists=$(${sudo} test -e "${dotfile}")
+
+    if [[ ${is_file_exists} -eq 0 ]]; then
+        if [[ ${force} -eq 0 ]]; then
+            read -r -p "dot file ${dotfile} already exist. Do you want overwrite? [y/n]: "
+
+            if [[ ! "${REPLY}" =~ ^[yY]$ ]]; then
+                return
+            fi
+        fi
+    fi
+
+    ${sudo} ln -fnsrv "${file}" "${dotfile}"
+}
+
+while [[ "${1}" =~ ^- && ! "${1}" == "--" ]]; do
+    case ${1} in
+        -a | --all )
+            all=1
+            ;;
+        -f | --force )
+            force=1
+            ;;
+        -h | --help )
+            help
+            exit
+            ;;
+        -r | --root )
+            root=1
+            sudo -p "Need sudo password to install for root: " true || root=0
+            ;;
+        -v | --version )
+            echo ${version}
+            exit
+            ;;
+        * )
+            echo "Wrong OPTION ${1}. Run dotfile -h|--help"
+            ;;
+    esac;
+
+    shift;
+done
+
+if [[ "${1}" == '--' ]]; then
+    shift;
+fi
+
+if [[ ${all} -eq 0 && ${#} -eq 0 ]]; then
+    echo "Need dotfile(s) name to install"
+    exit 1
+fi
+
+if [[ ${all} -eq 0 ]]; then
+    files=()
+
+    for file in "${@}"; do
+        if [[ ! -e "${file}" ]]; then
+            echo "Dot file \"${file}\" does not exist."
+            exit 1
+        fi
+
+        files+=("${file}")
+    done
+fi
+
+install_files ${files[@]}
