@@ -42,6 +42,10 @@ imap <right> <nop>
 " Remove trailing whitespace after save :w
 autocmd BufWritePre * %s/\s\+$//e
 
+" Setup maring
+set colorcolumn=81
+set nowrap
+
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
