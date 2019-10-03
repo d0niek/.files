@@ -80,3 +80,17 @@ augroup END
 if has('syntax') && has('eval')
   packadd! matchit
 endif
+
+map bn :bn<CR>
+map bN :bp<CR>
+
+" airline
+"
+let g:airline_theme = 'violet'
+" Remember to install powerline-status
+"     pip install powerline-status
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+"
+" END airline
