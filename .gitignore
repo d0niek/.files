@@ -2,5 +2,8 @@
 vim/backup/*
 !vim/backup/.gitempty
 
+vim/.netrwhist
 vim/undo/*
 !vim/undo/.gitempty
+
+*.swp
