@@ -10,3 +10,6 @@
 [submodule "vim/pack/dist/start/ctrlp.vim"]
 	path = vim/pack/dist/start/ctrlp.vim
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "vim/pack/dist/start/vim-gitgutter"]
+	path = vim/pack/dist/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
