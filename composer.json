@@ -1,0 +1,18 @@
+{
+    "name": "d0niek/vim-pack",
+    "description": "Packages pack for vim plugins",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damian Glinkowski",
+            "email": "damian@d0niek.pl"
+        }
+    ],
+    "require": {
+        "phan/phan": "*",
+        "phpmd/phpmd": "*",
+        "phpstan/phpstan": "*",
+        "squizlabs/php_codesniffer": "*"
+    }
+}
