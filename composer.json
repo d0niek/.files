@@ -1,5 +1,5 @@
 {
-    "name": "d0niek/vim-pack",
+    "name": "d0niek/dotfile",
     "description": "Packages pack for vim plugins",
     "type": "library",
     "license": "MIT",
