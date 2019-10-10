@@ -1,2 +1,3 @@
 
 function cd () { builtin cd "$@"; ls; }
+alias tree-min='tree -L 2'
