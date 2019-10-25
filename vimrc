@@ -9,6 +9,8 @@ set expandtab
 set number
 map <C-N><C-N> :set invnumber<CR>
 
+set cursorline
+
 " Disable the arrow keys!
 map <up>    <nop>
 map <down>  <nop>
@@ -73,6 +75,7 @@ set statusline+=%*
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
+let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "
