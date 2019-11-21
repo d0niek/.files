@@ -42,6 +42,9 @@ endif
 
 set hlsearch
 
+set autoindent
+set smartindent
+
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
