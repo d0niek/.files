@@ -24,7 +24,7 @@ imap <right> <nop>
 " Remove trailing whitespace after save :w
 autocmd BufWritePre * %s/\s\+$//e
 
-" Setup maring
+" Setup margin
 set colorcolumn=81
 set nowrap
 
@@ -53,16 +53,23 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 augroup END
 
+" Switch buffers (next, previous)
 map bn :bn<CR>
 map bN :bp<CR>
 
 
+filetype plugin on
+
+" Plugins setup
+
 " airline
 "
 let g:airline_theme = 'violet'
-" Remember to install powerline-status
+
+" Remember to install powerline-status:
 "     pip install powerline-status
 let g:airline_powerline_fonts = 1
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "
@@ -84,10 +91,4 @@ let g:syntastic_check_on_wq = 0
 "
 " END syntastic
 
-
-" Files type settings
-"
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd', 'phpstan']
-let g:syntastic_sh_checkers = ['shellcheck']
-"
-" END Files type settings
+" END Plugins setup
