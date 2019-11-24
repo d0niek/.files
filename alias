@@ -1,3 +1,11 @@
 
-function cd () { builtin cd "$@"; ls; }
-alias tree-min='tree -L 2'
+function cd () {
+    builtin cd "$@";
+    ls;
+}
+
+function treel () {
+    level=${1:-2};
+
+    tree -L ${level};
+}
