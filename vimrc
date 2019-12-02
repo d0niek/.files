@@ -41,6 +41,7 @@ else
 endif
 
 set hlsearch
+set incsearch
 
 set autoindent
 set smartindent
