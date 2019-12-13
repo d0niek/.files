@@ -6,14 +6,14 @@ endif
 
 let b:php_ftplugin_snippets = 1
 
-abbr author /**<CR> * @author<CR>*/<esc>kA
+iabbrev author /**<CR> * @author<CR>*/<esc>kA
 
-abbr class
+iabbrev class
     \ class name<CR>
     \{<CR>
     \}<esc>2kw
 
-abbr classf
+iabbrev classf
     \ <?php<CR>
     \declare(strict_types=1);<CR>
     \<CR>
@@ -26,17 +26,17 @@ abbr classf
     \{<CR>
     \}<esc>4gg$
 
-abbr /**
+iabbrev /**
     \ /**<CR>
     \ * <CR>
     \*/<esc>k$
 
-abbr interface
+iabbrev interface
     \ interface name<CR>
     \{<CR>
     \}<esc>2kw
 
-abbr interfacef
+iabbrev interfacef
     \ <?php<CR>
     \declare(strict_types=1);<CR>
     \<CR>namespace ;<CR>
@@ -48,16 +48,16 @@ abbr interfacef
     \{<CR>
     \}<esc>4gg$
 
-abbr phps
+iabbrev phps
     \ <?php<CR>
     \declare(strict_types=1);<CR><CR><esc>
 
-abbr trait
+iabbrev trait
     \ trait name<CR>
     \{<CR>
     \}<esc>2kw
 
-abbr traitf
+iabbrev traitf
     \ <?php<CR>
     \declare(strict_types=1);<CR>
     \<CR>
@@ -70,7 +70,7 @@ abbr traitf
     \{<CR>
     \}<esc>4gg$
 
-abbr testcase
+iabbrev testcase
     \ <?php<CR>
     \declare(strict_types=1);<CR>
     \<CR>
@@ -85,7 +85,7 @@ abbr testcase
     \{<CR>
     \}<esc>4ggw
 
-abbr unitest
+iabbrev unitest
     \ public function testFoo(): void<CR>
     \{<CR>
     \}<esc>2k3e2h
