@@ -16,3 +16,6 @@
 [submodule "vim/pack/dist/start/vim-syntastic"]
 	path = vim/pack/dist/start/vim-syntastic
 	url = git@github.com:vim-syntastic/syntastic.git
+[submodule "vim/pack/dist/start/vim-table-mode"]
+	path = vim/pack/dist/start/vim-table-mode
+	url = git@github.com:dhruvasagar/vim-table-mode.git
