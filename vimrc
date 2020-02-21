@@ -6,7 +6,7 @@ set softtabstop=4
 set expandtab
 
 " Display line number and toggle with 2x Ctrl+n
-set number
+" set number
 map <C-N><C-N> :set invnumber<CR>
 
 set cursorline
