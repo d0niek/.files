@@ -1,11 +1,17 @@
 
+alias ..='cd ..'
+alias ...='cd ../..'
+alias grep='grep --color=auto'
+alias ip='ip --color=auto'
+alias l='ls -alF'
+alias la='ls -la'
+alias ll='ls -l'
+alias md='mkdir -p'
+alias o='less'
+alias rd='rmdir'
+alias unmount='echo "Error: Try the command: umount" 1>&2; false'
+
 function cd () {
     builtin cd "$@";
     ls;
-}
-
-function treel () {
-    level=${1:-2};
-
-    tree -L ${level};
 }
