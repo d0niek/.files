@@ -11,7 +11,6 @@ let b:php_ftplugin = 1
 " syntastic
 "
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd', 'phpstan']
-let g:syntastic_sh_checkers = ['shellcheck']
 "
 " END syntastic
 "
@@ -21,7 +20,6 @@ let g:syntastic_sh_checkers = ['shellcheck']
 "
 command! Ts !vendor/bin/phpunit --testdox %<CR>
 command! Ta !vendor/bin/phpunit <CR>
-
 "
 " END Commands
 
