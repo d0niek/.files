@@ -58,6 +58,8 @@ augroup END
 map bn :bn<CR>
 map bN :bp<CR>
 
+nmap <Space> :
+
 
 filetype plugin on
 
