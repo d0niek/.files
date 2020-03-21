@@ -16,10 +16,63 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd', 'phpstan']
 "
 " END Plugins setup
 
+function FindPhpUnitConfig(testfile)
+    let pathArray = split(a:testfile, '/')
+    let pathArray = pathArray[:len(pathArray) - 2]
+
+    while !empty(pathArray)
+        let path = join(pathArray, '/')
+        let configFile = path . '/phpunit.xml'
+
+        if filereadable(configFile)
+           return configFile
+        endif
+
+        let configFile .= '.dist'
+
+        if filereadable(configFile)
+           return configFile
+        endif
+
+        let pathArray = pathArray[:len(pathArray) - 2]
+    endwhile
+
+    return ''
+endfunction
+
+function! RunPhpUnit(testfile, options, context)
+    let config = FindPhpUnitConfig(a:context)
+
+    if config != ''
+        let config = ' -c ' . config
+    endif
+
+    execute '!vendor/bin/phpunit' a:options config a:testfile
+endfunction
+
+function! RunPhpUnitForFile(fileName)
+    let fileName = a:fileName
+    let fileNameLength = len(fileName)
+    let testSufixLength = len('Test.php')
+    let fileSufix = fileName[fileNameLength - testSufixLength:fileNameLength]
+
+    if fileSufix != 'Test.php'
+        let fileName = substitute(fileName, '/src/', '/tests/', '')
+        let fileName = substitute(fileName, '.php', 'Test.php', '')
+
+        if !filereadable(fileName)
+            echo "Test not found"
+            return
+        endif
+    endif
+
+    call RunPhpUnit(fileName, '--testdox', fileName)
+endfunction
+
 " Commands
 "
-command! Ts !vendor/bin/phpunit --testdox %<CR>
-command! Ta !vendor/bin/phpunit <CR>
+command! TestRunAll call RunPhpUnit('', '', @%)
+command! TestRunOne call RunPhpUnitForFile(@%)
 "
 " END Commands
 
