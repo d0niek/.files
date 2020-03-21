@@ -4,7 +4,7 @@ all=0
 force=0
 root=0
 version=0.1.0
-files=("alias" "bashrc" "bashutil" "vim" "vimrc")
+files=("alias" "bashrc" "bashutil" "tigrc" "vim" "vimrc")
 
 function help() {
     echo "Install dot files for current user."
