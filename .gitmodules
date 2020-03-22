@@ -19,3 +19,6 @@
 [submodule "vim/pack/dist/start/vim-table-mode"]
 	path = vim/pack/dist/start/vim-table-mode
 	url = git@github.com:dhruvasagar/vim-table-mode.git
+[submodule "vim/pack/dist/start/vim-vdebug"]
+	path = vim/pack/dist/start/vim-vdebug
+	url = git@github.com:vim-vdebug/vdebug.git
