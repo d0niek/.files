@@ -1,0 +1,106 @@
+
+snippet /** "Comment block"
+/**
+ *
+ */
+endsnippet
+
+snippet php "Php file start"
+<?php
+declare(strict_types=1);
+
+${1}
+endsnippet
+
+snippet phpbin "Bin php file start"
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+${1}
+endsnippet
+
+# classes, interfaces, traits
+snippet class "Short class: class {...}"
+class `!p snip.rv = snip.basename`
+{${0}
+}
+endsnippet
+
+snippet class "Long class: <?php class {...}"
+<?php
+declare(strict_types=1);
+
+namespace ${1};
+
+/**
+ * @author ${2:`git config user.name`} <${3:`git config user.email`}>
+ */
+class `!p snip.rv = snip.basename`
+{${0}
+}
+endsnippet
+
+snippet interface "Short interface: interface {...}"
+interface `!p snip.rv = snip.basename`
+{${0}
+}
+endsnippet
+
+snippet interface "Long interface: <?php interface {...}"
+<?php
+declare(strict_types=1);
+
+namespace ${1};
+
+/**
+ * @author ${2:`git config user.name`} <${3:`git config user.email`}>
+ */
+interface `!p snip.rv = snip.basename`
+{${0}
+}
+endsnippet
+
+snippet trait "Short trait: trait {...}"
+trait `!p snip.rv = snip.basename`
+{${0}
+}
+endsnippet
+
+snippet trait "Long trait: <?php trait {...}"
+<?php
+declare(strict_types=1);
+
+namespace ${1};
+
+/**
+ * @author ${2:`git config user.name`} <${3:`git config user.email`}>
+ */
+trait `!p snip.rv = snip.basename`
+{${0}
+}
+endsnippet
+
+# PhpUnit
+snippet testcase "PhpUnit test case"
+public function test${1:Foo}(): void
+{${2}
+}
+endsnippet
+
+snippet testclass "PhpUnit test class"
+<?php
+declare(strict_types=1);
+
+namespace ${2}Tests${3};
+
+use ${2/\\$//}$3\\${1:`!p snip.rv = snip.basename`};
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \\${2/\\$//}$3\\$1
+ */
+final class $1Test extends TestCase
+{${0}
+}
+endsnippet

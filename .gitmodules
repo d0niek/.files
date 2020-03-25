@@ -22,3 +22,6 @@
 [submodule "vim/pack/dist/start/vim-vdebug"]
 	path = vim/pack/dist/start/vim-vdebug
 	url = git@github.com:vim-vdebug/vdebug.git
+[submodule "vim/pack/dist/start/ultisnips"]
+	path = vim/pack/dist/start/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
