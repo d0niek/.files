@@ -1,7 +1,7 @@
 
 snippet /** "Comment block"
 /**
- *
+ * ${0}
  */
 endsnippet
 
@@ -9,7 +9,7 @@ snippet php "Php file start"
 <?php
 declare(strict_types=1);
 
-${1}
+${0}
 endsnippet
 
 snippet phpbin "Bin php file start"
@@ -17,10 +17,11 @@ snippet phpbin "Bin php file start"
 <?php
 declare(strict_types=1);
 
-${1}
+${0}
 endsnippet
 
 # classes, interfaces, traits
+
 snippet class "Short class: class {...}"
 class `!p snip.rv = snip.basename`
 {${0}
@@ -36,13 +37,22 @@ namespace ${1};
 /**
  * @author ${2:`git config user.name`} <${3:`git config user.email`}>
  */
-class `!p snip.rv = snip.basename`
+class ${4:`!p snip.rv = snip.basename`}
 {${0}
 }
 endsnippet
 
+snippet class "Anonymous class: new class () {...}"
+new class ($${1}) ${2}{
+    public function __construct($$1)
+    {
+        $this->$1 = $$1;
+    }${0}
+};
+endsnippet
+
 snippet interface "Short interface: interface {...}"
-interface `!p snip.rv = snip.basename`
+interface ${4:`!p snip.rv = snip.basename`}
 {${0}
 }
 endsnippet
@@ -56,7 +66,7 @@ namespace ${1};
 /**
  * @author ${2:`git config user.name`} <${3:`git config user.email`}>
  */
-interface `!p snip.rv = snip.basename`
+interface ${4:`!p snip.rv = snip.basename`}
 {${0}
 }
 endsnippet
@@ -76,19 +86,38 @@ namespace ${1};
 /**
  * @author ${2:`git config user.name`} <${3:`git config user.email`}>
  */
-trait `!p snip.rv = snip.basename`
+trait ${4:`!p snip.rv = snip.basename`}
 {${0}
 }
 endsnippet
 
 # PhpUnit
-snippet testcase "PhpUnit test case"
+
+snippet case "PhpUnit test case"
 public function test${1:Foo}(): void
-{${2}
+{${0}
 }
 endsnippet
 
-snippet testclass "PhpUnit test class"
+snippet data "PhpUnit data provider comment"
+/**
+ * @dataProvider ${0:foo}
+ */
+endsnippet
+
+snippet data "PhpUnit data provider full"
+/**
+ * @dataProvider ${1:foo}
+ */
+public function $1(): array
+{
+    return [
+        '${2:bar}' => [${0}],
+    ];
+}
+endsnippet
+
+snippet test "PhpUnit test class"
 <?php
 declare(strict_types=1);
 
@@ -102,5 +131,77 @@ use PHPUnit\Framework\TestCase;
  */
 final class $1Test extends TestCase
 {${0}
+}
+endsnippet
+
+# Class fields, methods
+
+snippet var "Class field comment"
+/**
+ * @var ${0:string}
+ */
+endsnippet
+
+snippet privvar "Private class field"
+/**
+ * @var ${1:string}
+ */
+private $${0:foo};
+endsnippet
+
+snippet protvar "Protected class field"
+/**
+ * @var ${1:string}
+ */
+protected $${0:foo};
+endsnippet
+
+snippet pubvar "Public class field"
+/**
+ * @var ${1:string}
+ */
+public $${0:foo};
+endsnippet
+
+snippet __con "Class constructor"
+/**
+ * @param ${1:string} $${2:foo}${3}
+ */
+public function __construct($1 $$2)
+{
+    $this->$2 = $$2;
+}
+endsnippet
+
+snippet privfun "Private class method"
+/**
+ * @param ${1:string} $${2:foo}
+ *
+ * @return ${3:void}
+ */
+private function ${4:foo}($1 $$2): $3
+{
+}
+endsnippet
+
+snippet protfun "Protected class method"
+/**
+ * @param ${1:string} $${2:foo}
+ *
+ * @return ${3:void}
+ */
+protected function ${4:foo}($1 $$2): $3
+{
+}
+endsnippet
+
+snippet pubfun "Public class method"
+/**
+ * @param ${1:string} $${2:foo}
+ *
+ * @return ${3:void}
+ */
+public function ${4:foo}($1 $$2): $3
+{
 }
 endsnippet
