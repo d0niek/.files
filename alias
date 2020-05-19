@@ -2,7 +2,6 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias grep='grep --color=auto'
-alias ip='ip --color=auto'
 alias l='ls -alF'
 alias la='ls -la'
 alias ll='ls -l'
