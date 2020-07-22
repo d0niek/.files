@@ -16,7 +16,7 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd', 'phpstan']
 "
 " END Plugins setup
 
-function FindPhpUnitConfig(testfile)
+function! FindPhpUnitConfig(testfile)
     let pathArray = split(a:testfile, '/')
     let pathArray = pathArray[:len(pathArray) - 2]
 
