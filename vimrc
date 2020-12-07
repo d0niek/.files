@@ -60,6 +60,7 @@ map bN :bp<CR>
 
 nmap <Space> :
 
+syntax on
 
 filetype plugin on
 
