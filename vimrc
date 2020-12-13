@@ -3,6 +3,10 @@
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬,space:·
 
+if filereadable(expand("~/.vim/Stab.vim"))
+    source ~/.vim/Stab.vim
+endif
+
 " Tabs settings
 set tabstop=4
 set shiftwidth=4
