@@ -1,4 +1,8 @@
 
+" Invisible characters settings
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬,space:·
+
 " Tabs settings
 set tabstop=4
 set shiftwidth=4
