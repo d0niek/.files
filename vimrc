@@ -65,6 +65,7 @@ augroup END
 " Switch buffers (next, previous)
 map bn :bn<CR>
 map bN :bp<CR>
+set hidden
 
 nmap <Space> :
 
