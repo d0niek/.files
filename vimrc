@@ -29,6 +29,15 @@ imap <down>  <nop>
 imap <left>  <nop>
 imap <right> <nop>
 
+" Switch windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+let g:netrw_liststyle=1
+let g:netrw_preview=1
+
 " Remove trailing whitespace after save :w
 autocmd BufWritePre * %s/\s\+$//e
 
