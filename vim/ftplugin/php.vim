@@ -1,7 +1,7 @@
 
 " Only do this when not done yet for this buffer
 if exists("b:php_ftplugin")
-  finish
+    finish
 endif
 
 let b:php_ftplugin = 1
@@ -11,6 +11,20 @@ let b:php_ftplugin = 1
 " syntastic
 "
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd', 'phpstan']
+
+let dirPath = expand('%:p')
+
+while dirPath != '/'
+    let dirPath = fnamemodify(dirPath, ':h')
+
+    if filereadable(dirPath . '/phpmd.xml.dist')
+        let b:syntastic_php_phpmd_post_args = dirPath . '/phpmd.xml.dist'
+    endif
+
+    if filereadable(dirPath . '/phpcs.xml.dist')
+        let b:syntastic_php_phpcs_args = '--basepath=$(pwd) --standard=' . dirPath . '/phpcs.xml.dist'
+    endif
+endwhile
 "
 " END syntastic
 "
