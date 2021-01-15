@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+version=0.1.0
+
+function help() {
+    echo "Generate vim plugins help"
+    echo "Run: vimhelp [OPTIONS]"
+    echo
+    echo "OPTIONS:"
+    echo "    -h    --help    Display this help"
+    echo "    -v    --version Display version"
+    echo
+    echo "Created by damian@d0niek.pl"
+}
+
+function generate_helps() {
+    find vim/pack/dist/start/ \
+        -type d \
+        -name doc \
+        -exec \
+            vim -u NONE -c "helptags {}" -c q \;
+}
+
+while [[ "${1}" =~ ^- && ! "${1}" == "--" ]]; do
+    case ${1} in
+        -h | --help )
+            help
+            exit
+            ;;
+        -v | --version )
+            echo ${version}
+            exit
+            ;;
+        * )
+            echo "Wrong OPTION ${1}. Run vimhelp -h|--help"
+            ;;
+    esac;
+
+    shift;
+done
+
+generate_helps
