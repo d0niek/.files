@@ -25,3 +25,6 @@
 [submodule "vim/pack/dist/start/ultisnips"]
 	path = vim/pack/dist/start/ultisnips
 	url = git@github.com:SirVer/ultisnips.git
+[submodule "vim/pack/dist/start/editorconfig-vim"]
+	path = vim/pack/dist/start/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
