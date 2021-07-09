@@ -1,24 +1,52 @@
 #!/usr/bin/env bash
 
+script="${0}"
 version=0.1.0
 
 function help() {
-    echo "Generate vim plugins help"
-    echo "Run: vimhelp [OPTIONS]"
+    echo "Manage vim plugins"
+    echo "Run: ${script} [OPTIONS] action"
     echo
     echo "OPTIONS:"
     echo "    -h    --help    Display this help"
     echo "    -v    --version Display version"
     echo
+    echo "Actions:"
+    echo "    add \$name \$repo Add new plugin"
+    echo "    helptags        Generate helptags from plugins"
+    echo "    update          Update plugins"
+    echo
     echo "Created by damian@d0niek.pl"
 }
 
-function generate_helps() {
+function add_plugin() {
+    name="${1}"
+    repo="${2}"
+
+    if [[ "${name}" == "" || "${repo}" == "" ]]; then
+        echo "Missing arguments"
+        echo "Run: ${script} add \$name \$repo"
+        echo
+        echo "where:"
+        echo "    \$name Is a plugin name"
+        echo "    \$repo Is a git repository"
+
+        exit 1
+    fi
+
+    git submodule add "${repo}" "vim/pack/dist/start/${name}"
+}
+
+function helptags() {
     find vim/pack/dist/start/ \
         -type d \
         -name doc \
         -exec \
             vim -u NONE -c "helptags {}" -c q \;
+}
+
+function update_plugins() {
+    git submodule update --remote --recursive
 }
 
 while [[ "${1}" =~ ^- && ! "${1}" == "--" ]]; do
@@ -32,11 +60,22 @@ while [[ "${1}" =~ ^- && ! "${1}" == "--" ]]; do
             exit
             ;;
         * )
-            echo "Wrong OPTION ${1}. Run vimhelp -h|--help"
+            echo "Wrong OPTION ${1}. Run ${script} -h|--help"
+            exit
             ;;
     esac;
 
     shift;
 done
 
-generate_helps
+action="${1}"
+
+if [[ "${action}" == "helptags" ]]; then
+    helptags
+elif [[ "${action}" == "add" ]]; then
+    add_plugin "${2}" "${3}"
+elif [[ "${action}" == "update" ]]; then
+    update_plugins
+else
+    help
+fi
