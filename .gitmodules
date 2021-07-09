@@ -28,3 +28,6 @@
 [submodule "vim/pack/dist/start/editorconfig-vim"]
 	path = vim/pack/dist/start/editorconfig-vim
 	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "vim/pack/dist/start/fzf-vim"]
+	path = vim/pack/dist/start/fzf-vim
+	url = git@github.com:junegunn/fzf.vim.git
