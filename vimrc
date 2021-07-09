@@ -71,9 +71,12 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 augroup END
 
-" Switch buffers (next, previous)
+" Buffers shortcuts
+map bd :bd<CR>
+map bf :bf<CR>
 map bn :bn<CR>
-map bN :bp<CR>
+map bl :bl<CR>
+map bp :bp<CR>
 set hidden
 
 nmap <Space> :
