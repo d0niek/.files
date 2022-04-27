@@ -29,6 +29,8 @@ imap <down>  <nop>
 imap <left>  <nop>
 imap <right> <nop>
 
+set clipboard^=unnamed,unnamedplus
+
 " Switch windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
