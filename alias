@@ -14,3 +14,11 @@ function cd () {
     builtin cd "$@";
     ls;
 }
+
+function copyfile () {
+    cat "$1" | xclip -selection clipboard
+}
+
+function copytext () {
+    echo "$1" | xclip -selection clipboard
+}
