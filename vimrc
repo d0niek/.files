@@ -81,6 +81,13 @@ map bl :bl<CR>
 map bp :bp<CR>
 set hidden
 
+" Quickfix shortcuts
+map cf :cfir<CR>
+map cn :cn<CR>
+map cl :clas<CR>
+map co :cope<CR>
+map cp :cp<CR>
+
 nmap <Space> :
 
 syntax on
