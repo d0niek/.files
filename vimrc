@@ -94,6 +94,9 @@ syntax on
 
 filetype plugin on
 
+map <c-p> :Files<CR>
+map <c-]> :Ag <c-r><c-w><CR>
+
 " Plugins setup
 
 " airline
