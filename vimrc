@@ -3,8 +3,8 @@
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬,space:·
 
-if filereadable(expand("~/.vim/Stab.vim"))
-    source ~/.vim/Stab.vim
+if filereadable(expand("~/.vim/vimcasts.vim"))
+  source ~/.vim/vimcasts.vim
 endif
 
 " Tabs settings
@@ -41,7 +41,7 @@ let g:netrw_liststyle=1
 let g:netrw_preview=1
 
 " Remove trailing whitespace after save :w
-autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
 
 " Setup margin
 set colorcolumn=81
