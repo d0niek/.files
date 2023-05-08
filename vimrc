@@ -126,14 +126,6 @@ map <c-_> :BLines<CR>
 "
 " END fzf
 
-" ctrlp
-"
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multiple_files = '1r'
-"
-" END ctrlp
-
 " netrw
 "
 let g:netrw_liststyle=1
