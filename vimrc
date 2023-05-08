@@ -43,7 +43,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Remove trailing whitespace after save :w
+" Remove trailing white space after save :w
 autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
 
 " Setup margin
@@ -151,7 +151,7 @@ let g:syntastic_loc_list_height = 5
 
 let g:syntastic_sh_checkers = ['shellcheck']
 
-" Recomendation from syntastic help (6.4)
+" Recommendation from syntastic help (6.4)
 set sessionoptions-=blank
 "
 " END syntastic
