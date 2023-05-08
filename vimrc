@@ -7,11 +7,17 @@ if filereadable(expand("~/.vim/vimcasts.vim"))
   source ~/.vim/vimcasts.vim
 endif
 
-" Tabs settings
+" Default tabs settings
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+" Default tabs settings for common files types
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 " Display line number and toggle with 2x Ctrl+n
 " set number
