@@ -1,6 +1,11 @@
 
 let mapleader = "\\"
 
+" Autoreload .vimrc file after save it
+" and quickly edit .vimrc fron any place
+autocmd bufwritepost vimrc source $MYVIMRC
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
 " Invisible characters settings
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬,space:·
