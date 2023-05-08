@@ -1,4 +1,6 @@
 
+let mapleader = "\\"
+
 " Invisible characters settings
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬,space:·
