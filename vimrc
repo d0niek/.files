@@ -96,6 +96,8 @@ filetype plugin on
 
 map <c-p> :Files<CR>
 map <c-]> :Ag <c-r><c-w><CR>
+map <c-b> :Buffers<CR>
+map <c-_> :BLines<CR>
 
 " Plugins setup
 
@@ -111,6 +113,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "
 " END airline
+
+" fzf
+"
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+"
+" END fzf
 
 " ctrlp
 "
