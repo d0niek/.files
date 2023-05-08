@@ -31,3 +31,6 @@
 [submodule "vim/pack/dist/start/fzf"]
 	path = vim/pack/dist/start/fzf
 	url = https://github.com/junegunn/fzf
+[submodule "vim/pack/dist/start/surround"]
+	path = vim/pack/dist/start/surround
+	url = git@github.com:tpope/vim-surround.git
