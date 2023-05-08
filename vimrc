@@ -37,9 +37,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-let g:netrw_liststyle=1
-let g:netrw_preview=1
-
 " Remove trailing whitespace after save :w
 autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
 
@@ -94,10 +91,8 @@ syntax on
 
 filetype plugin on
 
-map <c-p> :Files<CR>
-map <c-]> :Ag <c-r><c-w><CR>
-map <c-b> :Buffers<CR>
-map <c-_> :BLines<CR>
+" Get directory of current file
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
 
 " Plugins setup
 
@@ -117,6 +112,11 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 " fzf
 "
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+map <c-p> :Files<CR>
+map <c-]> :Ag <c-r><c-w><CR>
+map <c-b> :Buffers<CR>
+map <c-_> :BLines<CR>
 "
 " END fzf
 
@@ -127,6 +127,19 @@ let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_open_multiple_files = '1r'
 "
 " END ctrlp
+
+" netrw
+"
+let g:netrw_liststyle=1
+let g:netrw_preview=1
+
+" Open files in directory of current file
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+"
+" END netrw
 
 
 " syntastic
