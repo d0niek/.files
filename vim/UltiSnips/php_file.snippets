@@ -1,0 +1,82 @@
+
+snippet php "Php file start"
+<?php
+
+declare(strict_types=1);
+
+${0}
+endsnippet
+
+snippet php "Php bin file start"
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+${0}
+endsnippet
+
+# classes, interfaces, traits
+
+snippet class "Short class: class {...}"
+class ${1:`!p snip.rv = snip.basename`}
+{${0}
+}
+endsnippet
+
+snippet class "Long class: <?php class {...}"
+<?php
+
+declare(strict_types=1);
+
+namespace ${1};
+
+/**
+ * @author ${2:`git config user.name`} <${3:`git config user.email`}>
+ */
+class ${4:`!p snip.rv = snip.basename`}
+{${0}
+}
+endsnippet
+
+snippet interface "Short interface: interface {...}"
+interface ${1:`!p snip.rv = snip.basename`}
+{${0}
+}
+endsnippet
+
+snippet interface "Long interface: <?php interface {...}"
+<?php
+
+declare(strict_types=1);
+
+namespace ${1};
+
+/**
+ * @author ${2:`git config user.name`} <${3:`git config user.email`}>
+ */
+interface ${4:`!p snip.rv = snip.basename`}
+{${0}
+}
+endsnippet
+
+snippet trait "Short trait: trait {...}"
+trait ${1:`!p snip.rv = snip.basename`}
+{${0}
+}
+endsnippet
+
+snippet trait "Long trait: <?php trait {...}"
+<?php
+
+declare(strict_types=1);
+
+namespace ${1};
+
+/**
+ * @author ${2:`git config user.name`} <${3:`git config user.email`}>
+ */
+trait ${4:`!p snip.rv = snip.basename`}
+{${0}
+}
+endsnippet

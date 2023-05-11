@@ -1,0 +1,74 @@
+
+snippet __con "Class constructor"
+${1:public} function __construct(${2:string} $${3:foo})
+{
+    $this->$3 = $$3;${0}
+}
+endsnippet
+
+snippet class "Anonymous class: new class () {...}"
+new class ($${1}) ${2}{
+    public function __construct($$1)
+    {
+        $this->$1 = $$1;
+    }${0}
+};
+endsnippet
+
+snippet const "Class const"
+${1:public} const ${2:FOO} = ${0};
+endsnippet
+
+snippet "ext(ends)?" "Extends class"
+extends ${0}
+endsnippet
+
+snippet function "Class method"
+${1:public} function ${2:foo}(${3}): ${4:void}
+{${0}
+}
+endsnippet
+
+snippet get "Class getter"
+public function get${1:Foo}(): ${2:type}
+{
+    return $this->$1;
+}
+endsnippet
+
+snippet getset "Class getter & setter"
+public function get${1:Foo}(): ${2:type}
+{
+    return $this->$1;
+}
+
+public function set$1($2 $$1): self
+{
+    $this->$1 = $$1;
+
+    return $this;
+}
+endsnippet
+
+snippet "imp(lements)?" "Implements class"
+implements ${0}
+endsnippet
+
+snippet set "Class setter"
+public function set${1:Foo}($2 $$1): self
+{
+    $this->$1 = $$1;
+
+    return $this;
+}
+endsnippet
+
+snippet var "Class field's comment"
+/**
+ * @var ${0:string}
+ */
+endsnippet
+
+snippet var "Class field"
+${1:private} ${2:string} $${0:foo};
+endsnippet

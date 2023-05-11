@@ -1,0 +1,42 @@
+
+snippet testcase "PhpUnit test case"
+public function test${1:Foo}(): void
+{${0}
+}
+endsnippet
+
+snippet testdata "PhpUnit data provider comment"
+/**
+ * @dataProvider ${0:foo}
+ */
+endsnippet
+
+snippet testdata "PhpUnit data provider full"
+/**
+ * @dataProvider ${1:foo}
+ */
+public function $1(): array
+{
+    return [
+        '${2:bar}' => [${0}],
+    ];
+}
+endsnippet
+
+snippet test "PhpUnit test class"
+<?php
+
+declare(strict_types=1);
+
+namespace ${2}Tests${3};
+
+use ${2/\\$//}$3\\${1:`!p snip.rv = snip.basename`};
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \\${2/\\$//}$3\\$1
+ */
+final class $1Test extends TestCase
+{${0}
+}
+endsnippet
