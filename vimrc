@@ -133,6 +133,12 @@ map <c-_> :BLines<CR>
 "
 " END fzf
 
+" gundo
+"
+nnoremap U :GundoToggle<CR>
+"
+" END gundo
+
 " netrw
 "
 let g:netrw_liststyle=1

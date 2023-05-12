@@ -34,3 +34,6 @@
 [submodule "vim/pack/dist/start/surround"]
 	path = vim/pack/dist/start/surround
 	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/pack/dist/start/gundo"]
+	path = vim/pack/dist/start/gundo
+	url = git@github.com:sjl/gundo.vim.git
